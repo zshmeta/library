@@ -1,7 +1,8 @@
 // eslint-disable-next-line
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Button from './Button';
+import Card from './Card';
+import Button from '../Button'
 
 const StyledMain = styled.div`
   background-color: ${props => props.mode === 'dark' ? '#393939' : '#FFFFFF'};
@@ -11,7 +12,7 @@ const StyledMain = styled.div`
   height: 100vh;
 `;
 
-const ButtonShow = () => {
+const CardShow = () => {
   const [mode, setMode] = useState('dark');
 
   const toggleMode = () => {
@@ -23,8 +24,8 @@ const ButtonShow = () => {
       <div
       style={{
           position: 'absolute', 
-          top: '130px', 
-          left: '130px',
+          top: '200px', 
+          left: '200px',
           color: mode === 'light' ? '#FF9900' : '',
           backgroundColor: mode === 'light' ? '#A09E9E' : ''  ,
         }}      
@@ -35,13 +36,13 @@ const ButtonShow = () => {
         />
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'center', padding: '20px' }}>
-        <Button placeholder="Default" mode={mode} />
-        <Button placeholder="Invalid Entry" invalid={true} mode={mode} />
-        <Button placeholder="Valid Entry" valid={true} mode={mode} />
-        <Button placeholder="Disabled" disabled={true} mode={mode} />
+        <Card placeholder="Default" mode={mode} />
+        <Card placeholder="Invalid Entry" invalid={true} mode={mode} />
+        <Card placeholder="Valid Entry" valid={true} mode={mode} />
+        <Card placeholder="Disabled" disabled={true} mode={mode} />
       </div>
     </StyledMain>
   );
 };
 
-export default ButtonShow;
+export default CardShow;
