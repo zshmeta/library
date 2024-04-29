@@ -36,9 +36,6 @@ const DateShow = () => {
         />
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'center', padding: '20px' }}>
-        <Date placeholder="Default" mode={mode} />
-        <Date placeholder="Invalid Entry" invalid={true} mode={mode} />
-        <Date placeholder="Valid Entry" valid={true} mode={mode} />
         <Date placeholder="Disabled" disabled={true} mode={mode} />
       </div>
     </StyledMain>

@@ -24,6 +24,7 @@ export const DropdownContent = styled.div`
   z-index: 1;
 `;
 
+
 const Dropdown = ({ title, items, mode = 'dark' }) => {
   const [isOpen, setIsOpen] = useState(false);
 

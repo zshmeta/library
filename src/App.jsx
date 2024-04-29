@@ -9,7 +9,7 @@ import AlertsShow from './components/Alerts/main';
 import BreadcrumbShow from './components/Breadcrumb/main';
 import CardShow from './components/Card/main';
 import CheckboxShow from './components/Checkbox/main';
-// import DateShow from './components/Date/main';
+import DateShow from './components/Date/main';
 import DropdownShow from './components/Dropdown/main';
 // import ListShow from './components/List/main';
 // import LoadingShow from './components/Loading/main';
@@ -61,7 +61,7 @@ function App() {
         {visibleComponent === 'BreadcrumbShow' && <BreadcrumbShow />}
         {visibleComponent === 'CardShow' && <CardShow />}
         {visibleComponent === 'CheckboxShow' && <CheckboxShow />}
-        {/* {visibleComponent === 'DateShow' && <DateShow />} */}
+        {visibleComponent === 'DateShow' && <DateShow />}
         {visibleComponent === 'DropdownShow' && <DropdownShow />}
         {/* {visibleComponent === 'ListShow' && <ListShow />} */}
         {/* {visibleComponent === 'LoadingShow' && <LoadingShow />}
@@ -84,7 +84,7 @@ function App() {
         <StyledButton onClick={() => toggleVisibility('BreadcrumbShow')} text="Breadcrumb"></StyledButton>
         <StyledButton onClick={() => toggleVisibility('CardShow')} text="Cards"></StyledButton>
         <StyledButton onClick={() => toggleVisibility('CheckboxShow')} text="Checkboxes"></StyledButton>
-        {/* <StyledButton onClick={() => toggleVisibility('DateShow')} text="Dates"></StyledButton> */}
+        <StyledButton onClick={() => toggleVisibility('DateShow')} text="Dates"></StyledButton>
         <StyledButton onClick={() => toggleVisibility('DropdownShow')} text="Dropdowns"></StyledButton>
         {/* <StyledButton onClick={() => toggleVisibility('ListShow')} text="Lists"></StyledButton> */}
         {/* <StyledButton onClick={() => toggleVisibility('LoadingShow')} text="Loading Indicators"></StyledButton>
