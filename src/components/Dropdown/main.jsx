@@ -1,8 +1,7 @@
-// eslint-disable-next-line
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Dropdown from './Dropdown';
-import Button from '../Button'
+import Button from '../Button';
 
 const StyledMain = styled.div`
   background-color: ${props => props.mode === 'dark' ? '#393939' : '#FFFFFF'};
@@ -14,32 +13,21 @@ const StyledMain = styled.div`
 
 const DropdownShow = () => {
   const [mode, setMode] = useState('dark');
+  const toggleMode = () => setMode(prevMode => prevMode === 'dark' ? 'light' : 'dark');
 
-  const toggleMode = () => {
-    setMode(prevMode => prevMode === 'dark' ? 'light' : 'dark');
-  };
+  const items = [
+    { id: 0, title: 'Option 1' },
+    { id: 1, title: 'Option 2' },
+    { id: 2, title: 'Option 3' },
+  ];
 
   return (
     <StyledMain key={mode} mode={mode}>
-      <div
-      style={{
-          position: 'absolute', 
-          top: '200px', 
-          left: '200px',
-          color: mode === 'light' ? '#FF9900' : '',
-          backgroundColor: mode === 'light' ? '#A09E9E' : ''  ,
-        }}      
-        >
-        <Button 
-        text={mode === 'dark' ? 'Light Mode' : 'Dark Mode'} 
-        onClick={toggleMode} 
-        />
-      </div>
+      <Button text={mode === 'dark' ? 'Light Mode' : 'Dark Mode'} onClick={toggleMode} />
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'center', padding: '20px' }}>
-        <Dropdown placeholder="Default" mode={mode} />
-        <Dropdown placeholder="Invalid Entry" invalid={true} mode={mode} />
-        <Dropdown placeholder="Valid Entry" valid={true} mode={mode} />
-        <Dropdown placeholder="Disabled" disabled={true} mode={mode} />
+        <Dropdown mode={mode} title="Default Dropdown" items={items} />
+        <Dropdown mode={mode} disabled={true} title="Disabled Dropdown" items={items} />
+        <Dropdown mode={mode} alwaysOpen={true} title="Multi-Choice Dropdown" items={items} />
       </div>
     </StyledMain>
   );
