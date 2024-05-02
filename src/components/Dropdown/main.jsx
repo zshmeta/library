@@ -4,15 +4,10 @@ import Dropdown from './Dropdown';
 import Button from '../Button';
 
 const StyledMain = styled.div`
-  background-color: ${props => props.mode === 'dark' ? '#393939' : '#FFFFFF'};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+
 `;
 
-const DropdownShow = () => {
-  const [mode, setMode] = useState('dark');
+const DropdownShow = ({ mode }) => {
   const toggleMode = () => setMode(prevMode => prevMode === 'dark' ? 'light' : 'dark');
 
   const items = [
@@ -22,9 +17,9 @@ const DropdownShow = () => {
   ];
 
   return (
-    <StyledMain key={mode} mode={mode}>
-      <Button text={mode === 'dark' ? 'Light Mode' : 'Dark Mode'} onClick={toggleMode} />
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'center', padding: '20px' }}>
+    <StyledMain  mode={mode}>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '100px', alignItems: 'center', padding: '20px' }}>
         <Dropdown mode={mode} title="Default Dropdown" items={items} />
         <Dropdown mode={mode} disabled={true} title="Disabled Dropdown" items={items} />
         <Dropdown mode={mode} alwaysOpen={true} title="Multi-Choice Dropdown" items={items} />

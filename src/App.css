@@ -1,6 +1,31 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-color: #393939;
+.App {
+    position: fixed;
+    width: 100vw; /* 100% of the viewport width */
+    height: 100vh; /* 100% of the viewport height */
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    background-color: ${props => props.mode === 'dark' ? '#393939' : '#F9F9F9'};
+}
+
+.ButtonColumn {
+   position: absolute;
+    top: 10%;
+    right: 100px;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    gap: 13px;
+}
+
+
+.ShowContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    overflow: auto;  
+    height: 100vh;
+
 }

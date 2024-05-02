@@ -29,7 +29,10 @@ const CardImg = styled.div`
   height: 100%;
   object-fit: cover;
   border-radius: 20px 20px 0 0;
-  background-color: blueviolet;
+  background-image: url(${props => props.img});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 const CardDescrWrapper = styled.div`
@@ -70,7 +73,7 @@ const Link = styled.a`
 const Card = ({ img, title, description, links, mode = 'dark', active }) => {
   return (
     <Cards mode={mode} active={active}>
-      <CardImg>{img}</CardImg>
+      <CardImg img={img} />
       <CardDescrWrapper>
         <CardTitle>{title}</CardTitle>
         <CardDescr>{description}</CardDescr>

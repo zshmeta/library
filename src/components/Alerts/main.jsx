@@ -4,20 +4,20 @@ import Alerts from './Alerts';
 import Button from '../Button';
 
 const StyledMain = styled.div`
-  background-color: ${props => props.mode === 'dark' ? '#393939' : '#FFFFFF'};
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  // background-color: ${props => props.mode === 'dark' ? '#393939' : '#FFFFFF'};
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
 `;
 
 const AlertButton = styled(Button)`
-  margin-top: 10px;
+  margin: 10px;
+  padding: 10px;
+  gap: 10px;
 `;
 
-const AlertsShow = () => {
-  const [mode, setMode] = useState('dark');
+const AlertsShow = ({ mode }) => {
   const [alertState, setAlertState] = useState({
     error: false,
     success: false,
@@ -28,9 +28,7 @@ const AlertsShow = () => {
   // We also keep track of dynamic alerts
   const [dynamicAlerts, setDynamicAlerts] = useState([]);
 
-  const toggleMode = () => {
-    setMode(prevMode => prevMode === 'dark' ? 'light' : 'dark');
-  };
+
 
   const triggerAlert = (type) => {
     setAlertState(prev => ({ ...prev, [type]: true }));
@@ -57,22 +55,9 @@ const AlertsShow = () => {
   };
 
   return (
-    <StyledMain key={mode} mode={mode}>
-      <div
-        style={{
-          position: 'absolute', 
-          top: '200px', 
-          left: '200px',
-          color: mode === 'light' ? '#FF9900' : '',
-          backgroundColor: mode === 'light' ? '#A09E9E' : ''  ,
-        }}      
-      >
-        <Button 
-          text={mode === 'dark' ? 'Light Mode' : 'Dark Mode'} 
-          onClick={toggleMode} 
-        />
-      </div>
-      <div>
+    <StyledMain  mode={mode}>
+
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '40px', paddingBottom: '40px',  gap: '20px' }}>
         {['error', 'success', 'warning', 'info'].map((type) => (
           <div key={type}>
             <Alerts type={type} show={alertState[type]} animate={alertState[type]}>
